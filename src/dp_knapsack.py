@@ -36,10 +36,12 @@ if __name__ == "__main__":
     files = [
         "../data/data_50.csv",
         "../data/data_200.csv",
-        "../data/data_1000.csv"
+        "../data/data_1000.csv",
+        "../data/data_5000.csv",
+        "../data/data_10000.csv"
     ]
 
-    capacity = 100
+    capacity = 1000
 
     for file in files:
         weights, values = read_data(file)
@@ -48,4 +50,4 @@ if __name__ == "__main__":
         result = knapsack_dp(weights, values, capacity)
         end = time.time()
 
-        print(f"{file} → max değer: {result}, süre: {end - start:.5f} saniye")
+        print(f"{file} -> max değer: {result}, süre: {end - start:.5f} saniye")

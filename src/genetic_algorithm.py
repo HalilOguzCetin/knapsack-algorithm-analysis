@@ -73,12 +73,14 @@ def genetic_algorithm(weights, values, capacity, generations=50, pop_size=50):
 
 if __name__ == "__main__":
     files = [
-        "../data/data_50.csv",
-        "../data/data_200.csv",
-        "../data/data_1000.csv"
-    ]
+    "../data/data_50.csv",
+    "../data/data_200.csv",
+    "../data/data_1000.csv",
+    "../data/data_5000.csv",
+    "../data/data_10000.csv"
+]
 
-    capacity = 200
+    capacity = 1000
 
     for file in files:
         weights, values = read_data(file)

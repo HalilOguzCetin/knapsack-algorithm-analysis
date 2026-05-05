@@ -19,3 +19,5 @@ if __name__ == "__main__":
     generate_knapsack_data(50, "../data/data_50.csv")
     generate_knapsack_data(200, "../data/data_200.csv")
     generate_knapsack_data(1000, "../data/data_1000.csv")
+    generate_knapsack_data(5000, "../data/data_5000.csv")
+    generate_knapsack_data(10000, "../data/data_10000.csv")

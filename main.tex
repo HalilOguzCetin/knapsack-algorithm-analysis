@@ -1,0 +1,97 @@
+\documentclass[conference]{IEEEtran}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{float}
+
+\title{Knapsack Problemi Üzerinde Dinamik Programlama ve Genetik Algoritmanın Performans Analizi}
+
+\author{
+\IEEEauthorblockN{HALİL OĞUZ ÇETİN(232803054), EDASU KAYA(232803046)}
+\IEEEauthorblockA{
+Manisa Celal Bayar Üniversitesi\\
+Yazılım Mühendisliği\\
+\textbf{GitHub:}\\
+https://github.com/HalilOguzCetin/knapsack-algorithm-analysis
+}
+}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Bu çalışmada, Knapsack problemi üzerinde Dinamik Programlama ve Genetik Algoritma yöntemlerinin performansları karşılaştırılmıştır. Amaç, kesin çözüm veren algoritmalar ile sezgisel algoritmalar arasındaki hız ve doğruluk farkını incelemektir.
+\end{abstract}
+
+\section{Giriş}
+Knapsack problemi, verilen ağırlık ve değer bilgilerine sahip nesnelerin, belirli bir kapasiteyi aşmadan maksimum değeri elde edecek şekilde seçilmesini amaçlayan klasik bir optimizasyon problemidir. Bu problem NP-Hard sınıfına girmektedir.
+Bu çalışmanın temel amacı, farklı algoritmaların performanslarını karşılaştırarak hangi durumlarda hangi yöntemin daha avantajlı olduğunu ortaya koymaktır.
+
+\section{Literatür Taraması}
+
+Knapsack problemi, kombinatoryal optimizasyon problemleri arasında önemli bir yere sahiptir ve NP-Hard sınıfına dahil edilmektedir. Literatürde bu problemi çözmek için birçok farklı yaklaşım geliştirilmiştir.
+
+Dinamik Programlama (DP) yöntemi, problemin alt problemlere bölünerek çözülmesini sağlar ve her zaman optimum sonucu üretir. Ancak bu yöntem, veri boyutu büyüdükçe zaman ve bellek açısından maliyetli hale gelmektedir.
+
+Buna karşılık, Genetik Algoritma (GA) gibi sezgisel yöntemler daha hızlı çözümler sunmakta, ancak her zaman optimum sonucu garanti etmemektedir. Bu nedenle literatürde sıklıkla kesin algoritmalar ile sezgisel algoritmaların performans karşılaştırmaları yapılmaktadır.
+
+Bu çalışmada da benzer şekilde, Dinamik Programlama ve Genetik Algoritma yöntemleri karşılaştırılarak performans analizleri gerçekleştirilmiştir.
+
+\section{Yöntem}
+Bu çalışmada iki farklı algoritma kullanılmıştır:
+
+\subsection{Dinamik Programlama}
+Dinamik programlama yöntemi, problemi alt problemlere bölerek kesin çözüm üretmektedir. Ancak veri boyutu arttıkça çalışma süresi önemli ölçüde artmaktadır.
+
+\subsection{Genetik Algoritma}
+Genetik algoritma, doğal seçilim prensibine dayanan sezgisel bir yöntemdir. Daha hızlı çalışmasına rağmen her zaman optimum sonucu garanti etmez.
+
+\section{Deneysel Sonuçlar ve Analiz}
+
+Aşağıda algoritmaların çalışma süreleri ve elde ettikleri sonuçlar karşılaştırılmıştır.
+\begin{table}[H]
+\centering
+\small
+\caption{Algoritmaların Karşılaştırılması}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+N & DP Değer & GA Değer & Sapma (\%) & DP Süre & GA Süre \\
+\hline
+50 & 2425 & 2251 & 7.17 & 0.00902 & 0.01150 \\
+200 & 5597 & 916.5 & 83.63 & 0.03930 & 0.03767 \\
+1000 & 12216 & 3679 & 69.89 & 0.19527 & 0.17997 \\
+5000 & 24426 & 16031.6 & 34.38 & 1.03483 & 0.95387 \\
+10000 & 32775 & 30837.6 & 5.91 & 2.00310 & 1.84998 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{runtime_graph.png}
+\caption{Algoritmaların Çalışma Süresi Karşılaştırması}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.45\textwidth]{accuracy_graph.png}
+\caption{Algoritmaların Sonuç Değerleri Karşılaştırması}
+\end{figure}
+
+Sonuçlara göre, Dinamik Programlama algoritması tüm veri boyutlarında Genetik Algoritmaya göre daha yüksek sonuç değerleri üretmiştir. Bu durum, Dinamik Programlama yönteminin optimum çözüme daha yakın sonuçlar verdiğini göstermektedir. Ancak çalışma süresi incelendiğinde, veri boyutu arttıkça Dinamik Programlama algoritmasının zaman maliyetinin Genetik Algoritmaya göre daha fazla arttığı görülmektedir.
+
+Genetik Algoritma ise bazı veri setlerinde optimumdan sapmasına rağmen daha kısa sürede sonuç üretmiştir. Özellikle büyük veri setlerinde Genetik Algoritmanın daha uygulanabilir bir yaklaşım sunduğu görülmektedir. Bu durum, kesin çözüm veren yöntemler ile sezgisel yöntemler arasındaki doğruluk ve hız dengesini açıkça göstermektedir.
+
+Ayrıca Genetik Algoritmanın Dinamik Programlama sonucuna göre sapma oranı incelendiğinde, bazı veri setlerinde optimum sonuca oldukça yaklaştığı, bazı veri setlerinde ise belirgin sapmalar gösterdiği görülmektedir. Özellikle 10000 elemanlı veri setinde Genetik Algoritma, Dinamik Programlama sonucuna daha yakın bir değer üretmiştir. Bu durum, sezgisel yöntemlerin büyük veri setlerinde hızlı ve kabul edilebilir çözümler sunabileceğini göstermektedir.
+
+Deneylerde Dinamik Programlama algoritması 10000 elemanlı veri setine kadar çalıştırılabilmiştir. Ancak çalışma süresi veri boyutu arttıkça düzenli olarak artmıştır. Bu nedenle DP algoritmasının daha büyük veri setlerinde veya daha yüksek kapasite değerlerinde zaman ve bellek açısından uygulanabilirliğini kaybedebileceği değerlendirilmektedir.
+
+\section{Sonuç}
+Bu çalışmada, Knapsack problemi üzerinde Dinamik Programlama ve Genetik Algoritma yöntemleri karşılaştırılmıştır. Deneysel sonuçlar, Dinamik Programlama algoritmasının daha yüksek doğruluk sağladığını, ancak veri boyutu arttıkça çalışma süresinin belirgin şekilde yükseldiğini göstermiştir. Genetik Algoritma ise daha hızlı sonuç üretmesine rağmen her zaman optimum sonucu garanti etmemektedir.
+
+Bu sonuçlar, büyük ölçekli NP-Hard problemlerde kesin çözüm yöntemlerinin maliyetli hale gelebildiğini, sezgisel yöntemlerin ise hız açısından önemli avantajlar sağlayabildiğini göstermektedir.
+
+
+
+\end{document}
